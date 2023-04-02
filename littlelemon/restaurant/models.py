@@ -14,10 +14,9 @@ class Menu(models.Model):
     MenuID = models.IntegerField(primary_key=True, unique=True, validators=[MaxValueValidator(99999)], default=0)
     Title = models.CharField(max_length=255, unique=True)
     Price = models.DecimalField(max_digits=10, decimal_places=2)
-    Inventory = models.IntegerField(validators=[MaxValueValidator(99999)])
+    Inventory = models.SmallIntegerField()
     
 
     def get_item(self):
-        Title = self.title
-        Price = self.price
-        return f'{self.title}: {str(self.price)}'
+       
+        return f'{self.Title}: {str(self.Price)}'
